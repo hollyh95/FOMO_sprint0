@@ -1,0 +1,127 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+
+    <div class="text-center">
+            <div class="header & error_message">
+                <%block name="error_message">
+                </%block>
+            </div>
+    </div>
+
+
+    <head>
+
+
+
+        <title>FOMO</title>
+
+        ## add any site-wide scripts or CSS here; for example, jquery:
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="${STATIC_URL}homepage/media/bootstrap/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="${STATIC_URL}homepage/media/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="${STATIC_URL}homepage/media/bootstrap/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="${STATIC_URL}homepage/styles/custom.css"
+
+
+        ## render the static file links with the same name as this template
+        <script src="/django_mako_plus/dmp-common.min.js"></script>
+        ${ django_mako_plus.links(self) }
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+             <!-- Static navbar -->
+              <nav class="navbar navbar-default navbar-static-top">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="index"><i class="fa fa-ravelry" aria-hidden="true"></i></a>
+                  </div>
+                  <ul id="navbar" class="navbar-collapse collapse">
+
+
+                    <ul class="nav navbar-nav">
+
+
+                      <%block name = "navbar">
+
+                        <li><a href="#">Custom navbar</a></li>
+
+                        </%block>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Sign in</a></li>
+                          <li><a href="#">Sign up</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li class="dropdown-header">Nav header</li>
+                          <li><a href="#">Separated link</a></li>
+                          <li><a href="#">One more separated link</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+
+                  </div><!--/.nav-collapse -->
+                </div><!--/.container-fluid -->
+              </nav>
+
+           </head>
+    <body>
+        <main>
+
+            <div class="text-center & content_top">
+             <div content = "header">
+                <%block name="content_top">
+                </%block>
+            </div>
+            </div>
+
+
+            <div class="col-md-2 & content_left">
+                <%block name="content_left">
+
+                </%block>
+            </div>
+
+            <div class="col-md-8 & content">
+                <%block name="content">
+
+                </%block>
+            </div>
+
+            <div class="col-md-2 & content_right">
+                <%block name="content_right">
+
+                </%block>
+            </div>
+
+
+
+        </main>
+
+<div>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+</div>
+            <footer>
+                    <%block name ="body_footer">
+                        <%! from datetime import datetime %>
+                            &copy; Copyright ${ datetime.now().year }. All rights reserved.
+                    </%block>
+            </footer>
+
+    </body>
+
+</html>
+
+
