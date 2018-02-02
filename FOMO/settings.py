@@ -41,9 +41,10 @@ INSTALLED_APPS = [
     'django_mako_plus',
     'homepage',
     'cuser',
-
-
+    'account',
 ]
+
+AUTH_USER_MODEL = 'account.User'
 
 
 
