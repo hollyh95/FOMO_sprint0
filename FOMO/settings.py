@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'homepage',
     'cuser',
     'account',
+    'formlib',
 ]
 
 AUTH_USER_MODEL = 'account.User'

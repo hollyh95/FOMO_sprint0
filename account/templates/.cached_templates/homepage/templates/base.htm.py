@@ -5,10 +5,10 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1518330404.758734
+_modified_time = 1518330371.5447628
 _enable_loop = True
 _template_filename = '/Users/hollyholland/PycharmProjects/FOMO1/FOMO/homepage/templates/base.htm'
-_template_uri = 'base.htm'
+_template_uri = '/homepage/templates/base.htm'
 _source_encoding = 'utf-8'
 import django_mako_plus
 _exports = ['error_message', 'navbar', 'content_top', 'content_left', 'content', 'content_right', 'body_footer']
@@ -189,6 +189,6 @@ def render_body_footer(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/hollyholland/PycharmProjects/FOMO1/FOMO/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"17": 112, "19": 0, "41": 2, "46": 9, "47": 21, "48": 22, "49": 22, "50": 24, "51": 24, "52": 25, "53": 25, "54": 26, "55": 26, "56": 30, "57": 31, "58": 31, "63": 53, "64": 57, "65": 58, "66": 60, "67": 61, "68": 61, "69": 61, "70": 62, "71": 62, "72": 64, "77": 76, "82": 84, "87": 90, "92": 96, "97": 114, "103": 8, "109": 8, "115": 49, "121": 49, "127": 75, "133": 75, "139": 82, "145": 82, "151": 88, "157": 88, "163": 94, "169": 94, "175": 111, "181": 111, "182": 112, "183": 113, "184": 113, "190": 184}}
+{"filename": "/Users/hollyholland/PycharmProjects/FOMO1/FOMO/homepage/templates/base.htm", "uri": "/homepage/templates/base.htm", "source_encoding": "utf-8", "line_map": {"17": 112, "19": 0, "41": 2, "46": 9, "47": 21, "48": 22, "49": 22, "50": 24, "51": 24, "52": 25, "53": 25, "54": 26, "55": 26, "56": 30, "57": 31, "58": 31, "63": 53, "64": 57, "65": 58, "66": 60, "67": 61, "68": 61, "69": 61, "70": 62, "71": 62, "72": 64, "77": 76, "82": 84, "87": 90, "92": 96, "97": 114, "103": 8, "109": 8, "115": 49, "121": 49, "127": 75, "133": 75, "139": 82, "145": 82, "151": 88, "157": 88, "163": 94, "169": 94, "175": 111, "181": 111, "182": 112, "183": 113, "184": 113, "190": 184}}
 __M_END_METADATA
 """
