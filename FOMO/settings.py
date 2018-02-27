@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'cuser',
     'account',
     'formlib',
+    'catalog',
+    'manager',
+
 ]
 
 AUTH_USER_MODEL = 'account.User'
@@ -154,8 +157,12 @@ WSGI_APPLICATION = 'FOMO.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fomo',
+        'USER': 'admin',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -190,7 +197,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)

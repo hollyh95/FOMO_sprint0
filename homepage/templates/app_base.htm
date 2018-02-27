@@ -9,5 +9,9 @@
 <li class="nav-item ${'active' if request.dmp_router_page == 'faq' else ''}"><a href="/faq/">FAQ</a></li>
 <li class="nav-item ${'active' if request.dmp_router_page == 'terms' else ''}"><a href="/terms/">Terms and Conditions</a></li>
 <li class="nav-item ${'active' if request.dmp_router_page == 'sections' else ''}"><a href="/sections/">Sections</a></li>
+
+%if request.user.is_authenticated:
+<li class="nav-item ${'active' if request.dmp_router_page == 'index' else ''}"><a href="/manager/index/">Product</a></li>
+%endif
 </%block>
 

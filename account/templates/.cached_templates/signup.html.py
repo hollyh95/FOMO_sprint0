@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1518329632.701932
+_modified_time = 1518405715.412577
 _enable_loop = True
 _template_filename = '/Users/hollyholland/PycharmProjects/FOMO1/FOMO/account/templates/signup.html'
 _template_uri = 'signup.html'
@@ -24,14 +24,14 @@ def _mako_generate_namespaces(context):
     pass
 def _mako_inherit(template, context):
     _mako_generate_namespaces(context)
-    return runtime._inherit_from(context, '/homepage/templates/app_base.htm', _template_uri)
+    return runtime._inherit_from(context, 'app_base.htm', _template_uri)
 def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        form = context.get('form', UNDEFINED)
         def content_top():
             return render_content_top(context._locals(__M_locals))
+        form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content_top'):
@@ -47,9 +47,9 @@ def render_body(context,**pageargs):
 def render_content_top(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        form = context.get('form', UNDEFINED)
         def content_top():
             return render_content_top(context)
+        form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n    ')
         __M_writer(str( form ))

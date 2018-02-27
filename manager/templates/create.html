@@ -1,0 +1,35 @@
+<%inherit file="app_base.htm" />
+
+<%block name="content_top">
+
+    ${ form }
+<script>
+    $(document).ready(function(){
+        // initial condition
+        $('#id_itemID').closest('p').hide();
+        $('#id_maxRental').closest('p').hide();
+        $('#id_retireDate').closest('p').hide();
+        // on change event listener
+        $('#id_type').on('change', function() {
+            $('p').show(500);
+                if ($('#id_type').val() == 'BulkProduct') {
+                    $('#id_itemID').closest('p').hide(500);
+                    $('#id_maxRental').closest('p').hide(500);
+                    $('#id_retireDate').closest('p').hide(500);
+            } else if ($('#id_type').val() == 'IndividualProduct') {
+                    $('#id_quantity').closest('p').hide(500);
+                    $('#id_reorder_trigger').closest('p').hide(500);
+                    $('#id_reorder_quantity').closest('p').hide(500);
+                    $('#id_maxRental').closest('p').hide();
+                    $('#id_retireDate').closest('p').hide();
+            } else if ($('#id_type').val() == 'RentalProduct') {
+                    $('#id_quantity').closest('p').hide(500);
+                    $('#id_reorder_trigger').closest('p').hide(500);
+                    $('#id_reorder_quantity').closest('p').hide(500);
+        }
+    });
+    });
+</script>
+</%block>
+
+

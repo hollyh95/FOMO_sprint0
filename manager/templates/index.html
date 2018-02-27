@@ -1,0 +1,37 @@
+<%inherit file="app_base.htm" />
+
+<%block name="content_top">
+    <h1>Products</h1>
+</%block>
+
+<%block name="content">
+       <div class="wrapper animated fadeIn">
+    <a class='btn btn-primary' href="/manager/create/">Create Product</a>
+    <br>
+    <br>
+    <table class="table table-striped">
+        <tr>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th></th>
+        </tr>
+        %for product in productList:
+            <tr>
+                <td>${product.category.name}</td>
+                <td>${product.name}</td>
+                <td>${product.price}</td>
+                <td>${product.description}</td>
+                % if product.__class__.__name__ == 'BulkProduct':
+                <td>${product.quantity}</td>
+                % else:
+                <td>1</td>
+                % endif
+                <td><a class='btn btn-primary' href="/manager/edit/${product.id}">Edit</a>&nbsp;<a class='btn btn-danger' href="/manager/delete/${product.id}">Delete</a></td>
+            </tr>
+        %endfor
+    </table>
+</div>
+</%block>
