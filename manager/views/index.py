@@ -12,6 +12,6 @@ def process_request(request):
         'productList': productList
     }
 
-    return request.dmp_render('index.html',
+    return request.dmp.render('index.html',
         context
     )

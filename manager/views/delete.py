@@ -12,6 +12,6 @@ def process_request(request, Product:cmod.Product=None):
     return HttpResponseRedirect('/manager/index/')
     context = {
     }
-    return request.dmp_render('index.html',
+    return request.dmp.render('index.html',
         context
     )

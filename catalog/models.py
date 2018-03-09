@@ -1,5 +1,6 @@
 from django.db import models
 from polymorphic.models import PolymorphicModel
+from django.conf import settings
 
 
 class Category(models.Model):
@@ -37,6 +38,24 @@ class Product(PolymorphicModel):
     def get_quantity(self):
         return 1
 
+    def image_url(self):
+        images = ProductImage.objects.filter(product=self)
+        if not images:
+            url = settings.STATIC_URL + 'catalog/media/products/notfound.jpg'
+            return url
+        else:
+            url = settings.STATIC_URL + 'catalog/media/products/' + self.images.first().filename
+            return url
+
+    # @property
+    # def image_urls(self):
+    #     images = ProductImage.objects.filter(product=self)
+    #     if not images:
+    #         image_list = self.images.all()
+    #     else:
+    #         url = settings.STATIC_URL + 'catalog/media/products/notfound.jpg'
+    #         return url
+
 
 class BulkProduct(Product):
     '''A Bulk Product'''
@@ -59,3 +78,9 @@ class RentalProduct(Product):
     itemID = models.TextField(null=True)
     maxRental = models.IntegerField(default=0, null=True)
     retireDate = models.DateField(null=True)
+
+
+class ProductImage(models.Model):
+    filename = models.TextField()
+    product = models.ForeignKey('Product', related_name='images', on_delete=models.CASCADE)
+

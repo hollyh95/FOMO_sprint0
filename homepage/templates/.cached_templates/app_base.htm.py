@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1516775089.311813
+_modified_time = 1520476464.336305
 _enable_loop = True
 _template_filename = '/Users/hollyholland/PycharmProjects/FOMO1/FOMO/homepage/templates/app_base.htm'
 _template_uri = 'app_base.htm'
@@ -38,7 +38,7 @@ def render_body(context,**pageargs):
             context['self'].navbar(**pageargs)
         
 
-        __M_writer('\n\n')
+        __M_writer('\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -52,18 +52,22 @@ def render_navbar(context,**pageargs):
             return render_navbar(context)
         __M_writer = context.writer()
         __M_writer('\n<li class="nav-item ')
-        __M_writer(str('active' if request.dmp_router_page == 'index' else ''))
+        __M_writer(str('active' if request.dmp.page == 'index' else ''))
         __M_writer('"><a href="/index/"/>Home</a></li>\n<li class="nav-item ')
-        __M_writer(str('active' if request.dmp_router_page == 'about' else ''))
+        __M_writer(str('active' if request.dmp.page == 'about' else ''))
         __M_writer('"><a href="/about/"</>About</a></li>\n<li class="nav-item ')
-        __M_writer(str('active' if request.dmp_router_page == 'contact' else ''))
+        __M_writer(str('active' if request.dmp.page == 'contact' else ''))
         __M_writer('"><a href="/contact/">Contact</a></li>\n<li class="nav-item ')
-        __M_writer(str('active' if request.dmp_router_page == 'faq' else ''))
+        __M_writer(str('active' if request.dmp.page == 'faq' else ''))
         __M_writer('"><a href="/faq/">FAQ</a></li>\n<li class="nav-item ')
-        __M_writer(str('active' if request.dmp_router_page == 'terms' else ''))
+        __M_writer(str('active' if request.dmp.page == 'terms' else ''))
         __M_writer('"><a href="/terms/">Terms and Conditions</a></li>\n<li class="nav-item ')
-        __M_writer(str('active' if request.dmp_router_page == 'sections' else ''))
-        __M_writer('"><a href="/sections/">Sections</a></li>\n')
+        __M_writer(str('active' if request.dmp.page == 'sections' else ''))
+        __M_writer('"><a href="/sections/">Sections</a></li>\n\n')
+        if request.user.is_authenticated:
+            __M_writer('<li class="nav-item ')
+            __M_writer(str('active' if request.dmp.page == 'index' else ''))
+            __M_writer('"><a href="/manager/index/">Product</a></li>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -71,6 +75,6 @@ def render_navbar(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/hollyholland/PycharmProjects/FOMO1/FOMO/homepage/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"28": 0, "36": 1, "41": 12, "47": 5, "54": 5, "55": 6, "56": 6, "57": 7, "58": 7, "59": 8, "60": 8, "61": 9, "62": 9, "63": 10, "64": 10, "65": 11, "66": 11, "72": 66}}
+{"filename": "/Users/hollyholland/PycharmProjects/FOMO1/FOMO/homepage/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"28": 0, "36": 1, "41": 16, "47": 5, "54": 5, "55": 6, "56": 6, "57": 7, "58": 7, "59": 8, "60": 8, "61": 9, "62": 9, "63": 10, "64": 10, "65": 11, "66": 11, "67": 13, "68": 14, "69": 14, "70": 14, "76": 70}}
 __M_END_METADATA
 """

@@ -21,7 +21,7 @@ def process_request(request):
             'form' : form,
 
         }
-        return request.dmp_render('formtest.html', context)
+        return request.dmp.render('formtest.html', context)
 
 class TestForm(Formless):
 

@@ -11,4 +11,4 @@ def process_request(request):
 
     context = {
     }
-    return request.dmp_render('login.html', context)
+    return request.dmp.render('login.html', context)

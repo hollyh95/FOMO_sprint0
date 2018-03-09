@@ -65,9 +65,9 @@ def render_body(context,**pageargs):
             __M_writer('                        <li><a href="/account/logout/">Logout</a></li>\n')
         if request.user.is_authenticated == False:
             __M_writer('                        <li class="')
-            __M_writer(str( 'active' if request.dmp_router_page == 'account/login' else ''))
+            __M_writer(str( 'active' if request.dmp.page == 'account/login' else ''))
             __M_writer('"><a href="/account/login/">Login</a></li>\n                        <li class="')
-            __M_writer(str( 'active' if request.dmp_router_page == 'account/signup' else ''))
+            __M_writer(str( 'active' if request.dmp.page == 'account/signup' else ''))
             __M_writer('"><a href="/account/signup/">Signup</a></li>\n')
         __M_writer('                    </ul>\n                  </div><!--/.nav-collapse -->\n                </div><!--/.container-fluid -->\n              </nav>\n\n           </head>\n    <body>\n        <main>\n\n            <div class="text-center & content_top">\n             <div content = "header">\n                ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content_top'):

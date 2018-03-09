@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1519355558.6896782
+_modified_time = 1520476464.35071
 _enable_loop = True
 _template_filename = '/Users/hollyholland/PycharmProjects/FOMO1/FOMO/homepage/templates/base.htm'
 _template_uri = 'base.htm'
@@ -20,21 +20,21 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def content():
-            return render_content(context._locals(__M_locals))
-        def content_top():
-            return render_content_top(context._locals(__M_locals))
+        def navbar():
+            return render_navbar(context._locals(__M_locals))
         def error_message():
             return render_error_message(context._locals(__M_locals))
         def content_right():
             return render_content_right(context._locals(__M_locals))
-        def navbar():
-            return render_navbar(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         def content_left():
             return render_content_left(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        def content():
+            return render_content(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def content_top():
+            return render_content_top(context._locals(__M_locals))
         def body_footer():
             return render_body_footer(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -52,10 +52,10 @@ def render_body(context,**pageargs):
         __M_writer(str(STATIC_URL))
         __M_writer('homepage/media/bootstrap/css/bootstrap-theme.min.css">\n        <link rel="stylesheet" type="text/css" href="')
         __M_writer(str(STATIC_URL))
-        __M_writer('homepage/styles/custom.css"\n\n\n')
+        __M_writer('homepage/styles/custom.css">\n\n\n')
         __M_writer('        <script src="/django_mako_plus/dmp-common.min.js"></script>\n        ')
         __M_writer(str( django_mako_plus.links(self) ))
-        __M_writer('\n\n        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">\n\n\n\n             <!-- Static navbar -->\n              <nav class="navbar navbar-default navbar-static-top">\n                <div class="container-fluid">\n                  <div class="navbar-header">\n                    <a class="navbar-brand" href="index"><i class="fa fa-ravelry" aria-hidden="true"></i></a>\n                  </div>\n                  <ul id="navbar" class="navbar-collapse collapse">\n\n\n                    <ul class="nav navbar-nav">\n\n\n                      ')
+        __M_writer('\n\n        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">\n\n\n\n             <!-- Static navbar -->\n              <nav class="navbar navbar-inverse navbar-static-top">\n                <div class="container-fluid">\n                  <div class="navbar-header">\n                    <a class="navbar-brand" href="index"><i class="fa fa-ravelry" aria-hidden="true"></i></a>\n                  </div>\n                  <ul id="navbar" class="navbar-collapse collapse">\n\n\n                    <ul class="nav navbar-nav">\n\n\n                      ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'navbar'):
             context['self'].navbar(**pageargs)
         
@@ -65,11 +65,11 @@ def render_body(context,**pageargs):
             __M_writer('                        <li><a href="/account/logout/">Logout</a></li>\n')
         if request.user.is_authenticated == False:
             __M_writer('                        <li class="')
-            __M_writer(str( 'active' if request.dmp_router_page == 'account/login' else ''))
+            __M_writer(str( 'active' if request.dmp.page == 'account/login' else ''))
             __M_writer('"><a href="/account/login/">Login</a></li>\n                        <li class="')
-            __M_writer(str( 'active' if request.dmp_router_page == 'account/signup' else ''))
+            __M_writer(str( 'active' if request.dmp.page == 'account/signup' else ''))
             __M_writer('"><a href="/account/signup/">Signup</a></li>\n')
-        __M_writer('                    </ul>\n                  </div><!--/.nav-collapse -->\n                </div><!--/.container-fluid -->\n              </nav>\n\n           </head>\n    <body>\n        <main>\n\n            <div class="text-center & content_top">\n             <div content = "header">\n                ')
+        __M_writer('                    </ul>\n                  </div><!--/.nav-collapse -->\n                </div><!--/.container-fluid -->\n              </nav>\n\n           </head>\n    <body>\n        <main>\n<div class="container-fluid">\n            <div class="text-center & content_top">\n             <div content = "header">\n                ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content_top'):
             context['self'].content_top(**pageargs)
         
@@ -89,12 +89,12 @@ def render_body(context,**pageargs):
             context['self'].content_right(**pageargs)
         
 
-        __M_writer('\n            </div>\n\n\n\n        </main>\n\n<div>\n    </br>\n    </br>\n    </br>\n    </br>\n    </br>\n</div>\n            <!--<footer>\n                    ')
+        __M_writer('\n            </div>\n</div>\n\n\n        </main>\n\n<div>\n    </br>\n    </br>\n    </br>\n    </br>\n    </br>\n</div>\n\n                    ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'body_footer'):
             context['self'].body_footer(**pageargs)
         
 
-        __M_writer('\n            </footer>-->\n\n    </body>\n\n</html>\n\n\n')
+        __M_writer('\n\n\n    </body>\n\n</html>\n\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()

@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1519710488.798901
+_modified_time = 1520026275.694857
 _enable_loop = True
 _template_filename = '/Users/hollyholland/PycharmProjects/FOMO1/FOMO/account/templates/index.html'
 _template_uri = 'index.html'
@@ -37,7 +37,7 @@ def render_body(context,**pageargs):
             context['self'].content_top(**pageargs)
         
 
-        __M_writer('\n')
+        __M_writer('\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()

@@ -1,6 +1,33 @@
 
 <%inherit file="app_base.htm" />
 
-<%block name="center">
-    
+<%block name="content_top">
+    <h1 class="text-center">
+        % if selected is None:
+            All Categories
+        % else:
+            ${selected.name}
+        % endif
+    </h1>
 </%block>
+
+<%block name="content_left">
+    <ul class="list-group">
+        <li class="list-group-item active"><a href="/catalog/index/">All Products</a></li>
+      %for category in clist:
+        <li class="list-group-item active"> <a href="/catalog/index/${ category.id }">${category.name}</a></li>
+      %endfor
+    </ul>
+</%block>
+
+<%block name="content">
+    <div class="pagination">
+         <div class="row text-right"><a id="getLastPage"><i class="fa fa-arrow-left"></i></a> <span id='currentPage'>1</span> of <span id='maxPages'>${maxPages}</span> <a id="getNextPage"><i class="fa fa-arrow-right"></i></a></div>
+        <div class="wrapper">
+        <ul id="products">
+
+        </ul>
+    </div>
+    </div>
+</%block>
+

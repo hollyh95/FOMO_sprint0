@@ -23,7 +23,6 @@
 
         <link rel="stylesheet" type="text/css" href="${STATIC_URL}homepage/media/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="${STATIC_URL}homepage/media/bootstrap/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="${STATIC_URL}homepage/styles/custom.css"
 
 
         ## render the static file links with the same name as this template
@@ -35,7 +34,7 @@
 
 
              <!-- Static navbar -->
-              <nav class="navbar navbar-default navbar-static-top">
+              <nav class="navbar navbar-inverse navbar-static-top">
                 <div class="container-fluid">
                   <div class="navbar-header">
                     <a class="navbar-brand" href="index"><i class="fa fa-ravelry" aria-hidden="true"></i></a>
@@ -58,8 +57,8 @@
                         <li><a href="/account/logout/">Logout</a></li>
                         % endif
                         % if request.user.is_authenticated == False:
-                        <li class="${ 'active' if request.dmp_router_page == 'account/login' else ''}"><a href="/account/login/">Login</a></li>
-                        <li class="${ 'active' if request.dmp_router_page == 'account/signup' else ''}"><a href="/account/signup/">Signup</a></li>
+                        <li class="${ 'active' if request.dmp.page == 'account/login' else ''}"><a href="/account/login/">Login</a></li>
+                        <li class="${ 'active' if request.dmp.page == 'account/signup' else ''}"><a href="/account/signup/">Signup</a></li>
                         % endif
                     </ul>
                   </div><!--/.nav-collapse -->
@@ -69,7 +68,7 @@
            </head>
     <body>
         <main>
-
+<div class="container-fluid">
             <div class="text-center & content_top">
              <div content = "header">
                 <%block name="content_top">
@@ -95,7 +94,7 @@
 
                 </%block>
             </div>
-
+</div>
 
 
         </main>
@@ -107,12 +106,12 @@
     </br>
     </br>
 </div>
-            <!--<footer>
+
                     <%block name ="body_footer">
                         <%! from datetime import datetime %>
                             &copy; Copyright ${ datetime.now().year }. All rights reserved.
                     </%block>
-            </footer>-->
+
 
     </body>
 

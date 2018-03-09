@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1519709842.074514
+_modified_time = 1519771785.063903
 _enable_loop = True
 _template_filename = '/Users/hollyholland/PycharmProjects/FOMO1/FOMO/manager/templates/edit.html'
 _template_uri = 'edit.html'
@@ -53,7 +53,7 @@ def render_content_top(context,**pageargs):
         __M_writer = context.writer()
         __M_writer('\n\n    ')
         __M_writer(str( form ))
-        __M_writer("\n\n<script>\n    $(document).ready(function() {\n    // disable type selector\n    //$('#id_type').prop('disabled', true);\n    // iife this shiz\n    if ($('#id_type').val() == 'BulkProduct') {\n        $('#id_itemID').closest('p').hide();\n        $('#id_maxRental').closest('p').hide();\n        $('#id_retireDate').closest('p').hide();\n    } else if ($('#id_type').val() == 'IndividualProduct') {\n        $('#id_quantity').closest('p').hide();\n        $('#id_reorder_trigger').closest('p').hide();\n        $('#id_reorder_quantity').closest('p').hide();\n        $('#id_maxRental').closest('p').hide();\n        $('#id_retireDate').closest('p').hide();\n    } else if ($('#id_type').val() == 'RentalProduct') {\n        $('#id_quantity').closest('p').hide();\n        $('#id_reorder_trigger').closest('p').hide();\n        $('#id_reorder_quantity').closest('p').hide();\n    }\n});\n</script>\n\n")
+        __M_writer("\n\n<script>\n    $(document).ready(function() {\n    // disable type selector\n    //$('#id_type').prop('disabled', true);\n    if ($('#id_type').val() == 'BulkProduct') {\n        $('#id_itemID').closest('p').hide();\n        $('#id_maxRental').closest('p').hide();\n        $('#id_retireDate').closest('p').hide();\n    } else if ($('#id_type').val() == 'IndividualProduct') {\n        $('#id_quantity').closest('p').hide();\n        $('#id_reorder_trigger').closest('p').hide();\n        $('#id_reorder_quantity').closest('p').hide();\n        $('#id_maxRental').closest('p').hide();\n        $('#id_retireDate').closest('p').hide();\n    } else if ($('#id_type').val() == 'RentalProduct') {\n        $('#id_quantity').closest('p').hide();\n        $('#id_reorder_trigger').closest('p').hide();\n        $('#id_reorder_quantity').closest('p').hide();\n    }\n});\n</script>\n\n")
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -61,6 +61,6 @@ def render_content_top(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/hollyholland/PycharmProjects/FOMO1/FOMO/manager/templates/edit.html", "uri": "edit.html", "source_encoding": "utf-8", "line_map": {"28": 0, "36": 1, "41": 30, "47": 3, "54": 3, "55": 5, "56": 5, "62": 56}}
+{"filename": "/Users/hollyholland/PycharmProjects/FOMO1/FOMO/manager/templates/edit.html", "uri": "edit.html", "source_encoding": "utf-8", "line_map": {"28": 0, "36": 1, "41": 29, "47": 3, "54": 3, "55": 5, "56": 5, "62": 56}}
 __M_END_METADATA
 """
