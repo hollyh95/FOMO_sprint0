@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1520558410.9446669
+_modified_time = 1520575248.252615
 _enable_loop = True
 _template_filename = '/Users/hollyholland/PycharmProjects/FOMO1/FOMO/catalog/templates/index.inner.html'
 _template_uri = 'index.inner.html'
@@ -21,12 +21,14 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         splice = context.get('splice', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('<ul>\n')
         for p in splice:
-            __M_writer('    <img src="')
+            __M_writer("<li><div class='catalog-element'><div class='catalog-title text-center'>")
+            __M_writer(str(p.name))
+            __M_writer("</div><div class='catalog-price'>$")
+            __M_writer(str(p.price))
+            __M_writer('</div><img src="')
             __M_writer(str(p.image_url()))
-            __M_writer('" />\n\n')
-        __M_writer('</ul>\n')
+            __M_writer('" /></div></li></li>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -34,6 +36,6 @@ def render_body(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/hollyholland/PycharmProjects/FOMO1/FOMO/catalog/templates/index.inner.html", "uri": "index.inner.html", "source_encoding": "utf-8", "line_map": {"18": 0, "24": 1, "25": 2, "26": 3, "27": 3, "28": 3, "29": 6, "35": 29}}
+{"filename": "/Users/hollyholland/PycharmProjects/FOMO1/FOMO/catalog/templates/index.inner.html", "uri": "index.inner.html", "source_encoding": "utf-8", "line_map": {"18": 0, "24": 1, "25": 2, "26": 2, "27": 2, "28": 2, "29": 2, "30": 2, "31": 2, "37": 31}}
 __M_END_METADATA
 """

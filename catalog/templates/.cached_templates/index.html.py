@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1520573486.7727082
+_modified_time = 1520576991.242115
 _enable_loop = True
 _template_filename = '/Users/hollyholland/PycharmProjects/FOMO1/FOMO/catalog/templates/index.html'
 _template_uri = 'index.html'
@@ -30,13 +30,14 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        selected = context.get('selected', UNDEFINED)
         maxPages = context.get('maxPages', UNDEFINED)
-        def content_top():
-            return render_content_top(context._locals(__M_locals))
-        clist = context.get('clist', UNDEFINED)
         def content_left():
             return render_content_left(context._locals(__M_locals))
-        selected = context.get('selected', UNDEFINED)
+        def content_top():
+            return render_content_top(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        clist = context.get('clist', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -65,9 +66,9 @@ def render_body(context,**pageargs):
 def render_content_top(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        selected = context.get('selected', UNDEFINED)
         def content_top():
             return render_content_top(context)
-        selected = context.get('selected', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n    <h1 class="text-center">\n')
         if selected is None:
@@ -85,18 +86,28 @@ def render_content_top(context,**pageargs):
 def render_content_left(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        clist = context.get('clist', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         def content_left():
             return render_content_left(context)
+        clist = context.get('clist', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\n    <ul class="list-group">\n        <li class="list-group-item active"><a href="/catalog/index/">All Products</a></li>\n')
+        __M_writer('\n   <div>\n    <ul class=\'list-group\'>\n        <li><a class="list-group-item ')
+        __M_writer(str( 'active' if request.dmp.urlparams[0] == '' else ''))
+        __M_writer('" href="/catalog/index/">All Categories</a></li>\n')
         for category in clist:
-            __M_writer('        <li class="list-group-item"> <a href="/catalog/index/')
-            __M_writer(str( category.id ))
-            __M_writer('">')
-            __M_writer(str(category.name))
-            __M_writer('</a></li>\n')
-        __M_writer('    </ul>\n')
+            if request.dmp.urlparams[0] == '${category.id}':
+                __M_writer('            <li><a class="list-group-item active" href="/catalog/index/')
+                __M_writer(str( category.id ))
+                __M_writer('">')
+                __M_writer(str( category.name ))
+                __M_writer('</a></li>\n')
+            else:
+                __M_writer('            <li><a class="list-group-item" href="/catalog/index/')
+                __M_writer(str( category.id ))
+                __M_writer('">')
+                __M_writer(str( category.name ))
+                __M_writer('</a></li>\n')
+        __M_writer('    </ul>\n   </div>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -105,9 +116,9 @@ def render_content_left(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        maxPages = context.get('maxPages', UNDEFINED)
         def content():
             return render_content(context)
-        maxPages = context.get('maxPages', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n    <div class="pagination">\n         <div class="row text-right"><a id="getLastPage"><i class="fa fa-arrow-left"></i></a> <span id=\'currentPage\'>1</span> of <span id=\'maxPages\'>')
         __M_writer(str(maxPages))
@@ -119,6 +130,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/hollyholland/PycharmProjects/FOMO1/FOMO/catalog/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "43": 1, "44": 2, "49": 12, "54": 21, "59": 32, "65": 4, "72": 4, "73": 6, "74": 7, "75": 8, "76": 9, "77": 9, "78": 9, "79": 11, "85": 14, "92": 14, "93": 17, "94": 18, "95": 18, "96": 18, "97": 18, "98": 18, "99": 20, "105": 23, "112": 23, "113": 25, "114": 25, "120": 114}}
+{"filename": "/Users/hollyholland/PycharmProjects/FOMO1/FOMO/catalog/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "44": 1, "45": 2, "50": 12, "55": 27, "60": 38, "66": 4, "73": 4, "74": 6, "75": 7, "76": 8, "77": 9, "78": 9, "79": 9, "80": 11, "86": 14, "94": 14, "95": 17, "96": 17, "97": 18, "98": 19, "99": 20, "100": 20, "101": 20, "102": 20, "103": 20, "104": 21, "105": 22, "106": 22, "107": 22, "108": 22, "109": 22, "110": 25, "116": 29, "123": 29, "124": 31, "125": 31, "131": 125}}
 __M_END_METADATA
 """

@@ -12,12 +12,18 @@
 </%block>
 
 <%block name="content_left">
-    <ul class="list-group">
-        <li class="list-group-item active"><a href="/catalog/index/">All Products</a></li>
-      %for category in clist:
-        <li class="list-group-item active"> <a href="/catalog/index/${ category.id }">${category.name}</a></li>
-      %endfor
+   <div>
+    <ul class='list-group'>
+        <li><a class="list-group-item ${ 'active' if request.dmp.urlparams[0] == '' else ''}" href="/catalog/index/">All Products</a></li>
+        %for category in clist:
+            % if request.dmp.urlparams[0] == '${category.id}':
+            <li><a class="list-group-item active" href="/catalog/index/${ category.id }">${ category.name }</a></li>
+            % else:
+            <li><a class="list-group-item" href="/catalog/index/${ category.id }">${ category.name }</a></li>
+            % endif
+        %endfor
     </ul>
+   </div>
 </%block>
 
 <%block name="content">

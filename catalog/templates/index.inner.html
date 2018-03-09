@@ -1,6 +1,3 @@
-<ul>
-    %for p in splice:
-    <img src="${p.image_url()}" />
-
-    %endfor
-</ul>
+%for p in splice:
+<li><div class='catalog-element'><div class='catalog-title text-center'>${p.name}</div><div class='catalog-price'>$${p.price}</div><img src="${p.image_url()}" /></div></li></li>
+%endfor
