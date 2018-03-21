@@ -1,1 +1,29 @@
 <%inherit file="/homepage/templates/app_base.htm" />
+
+<%block name="content_left">
+   <div>
+    <ul class='list-group'>
+        <li><a class="list-group-item ${ 'active' if request.dmp.urlparams[0] == '' else ''}" href="/catalog/index/">All Products</a></li>
+        %for category in clist:
+            <li><a class="list-group-item ${ 'active' if category.id == active_id else ''}" href="/catalog/index/${ category.id }">${ category.name }</a></li>
+        %endfor
+    </ul>
+   </div>
+</%block>
+
+<%block name="content_right">
+    <div class='text-center'>
+        <b>Recently Viewed</b>
+        % for product in lastFiveProds:
+            % if product.images.all().first() is None:
+                <div class='recently-viewed-thumbnail'>
+                    <a href="/catalog/details/${product.id}"><img src="${STATIC_URL}/catalog/media/products/notfound.jpg" alt="recently viewed thumbnail"></a>
+                </div>
+            % else:
+                <div class='recently-viewed-thumbnail'>
+                    <a href="/catalog/details/${product.id}"><img src="${STATIC_URL}/catalog/media/products/${product.images.all().first().filename}" alt="recently viewed thumbnail"></a>
+                </div>
+            % endif
+        % endfor
+    </div>
+</%block>

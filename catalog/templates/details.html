@@ -1,0 +1,41 @@
+<%inherit file="app_base.htm" />
+
+<%block name='content_top'>
+    <div id="name" class='text-center'>
+        <h1>${name}</h1>
+    </div>
+</%block>
+
+<%block name="content">
+    <div class="details">
+        <div class="row">
+            <div class="col-md-2">
+                %for pi in imageList:
+                    <div class="small-image-tile">
+                        <img id='${pi.filename}' src="${STATIC_URL}/catalog/media/products/${pi.filename}" alt="thumbnail">
+                    </div>
+                %endfor
+            </div>
+            <div class="col-md-4">
+                <div class="main-image">
+                     <img class="main-image-img" src="${STATIC_URL}/catalog/media/products/${mainImage}" alt="main image">
+                </div>
+                <div>
+                    <p></p>
+                    <button class="btn btn-primary" id="butt">Buy Now</button>
+                    %if productType == 'BulkProduct':
+                        <p id="quantity">Quanity: ${ quantity }</p>
+                    %endif
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="description">
+                    <b class="text-info">$${ price }</b>
+                    <p>${ description }</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</%block>

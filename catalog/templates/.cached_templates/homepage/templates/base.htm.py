@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1520484962.101634
+_modified_time = 1520913616.74094
 _enable_loop = True
 _template_filename = '/Users/hollyholland/PycharmProjects/FOMO1/FOMO/homepage/templates/base.htm'
 _template_uri = '/homepage/templates/base.htm'
@@ -21,23 +21,23 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def content_right():
-            return render_content_right(context._locals(__M_locals))
+        def content_top():
+            return render_content_top(context._locals(__M_locals))
+        def error_message():
+            return render_error_message(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
         def navbar():
             return render_navbar(context._locals(__M_locals))
         def content():
             return render_content(context._locals(__M_locals))
-        def content_left():
-            return render_content_left(context._locals(__M_locals))
         request = context.get('request', UNDEFINED)
         def body_footer():
             return render_body_footer(context._locals(__M_locals))
-        def error_message():
-            return render_error_message(context._locals(__M_locals))
-        def content_top():
-            return render_content_top(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def content_right():
+            return render_content_right(context._locals(__M_locals))
+        def content_left():
+            return render_content_left(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\n<html>\n    <meta charset="UTF-8">\n\n    <div class="text-center">\n            <div class="header & error_message">\n                ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'error_message'):
@@ -68,7 +68,7 @@ def render_body(context,**pageargs):
             __M_writer('"><a href="/account/login/">Login</a></li>\n                        <li class="')
             __M_writer(str( 'active' if request.dmp.page == 'account/signup' else ''))
             __M_writer('"><a href="/account/signup/">Signup</a></li>\n')
-        __M_writer('                    </ul>\n                  </div><!--/.nav-collapse -->\n                </div><!--/.container-fluid -->\n              </nav>\n\n           </head>\n    <body>\n        <main>\n<div class="container-fluid">\n            <div class="text-center & content_top">\n             <div content = "header">\n                ')
+        __M_writer('                    </ul>\n                  </div><!--/.nav-collapse -->\n                </div><!--/.container-fluid -->\n              </nav>\n\n           </head>\n    <body>\n        <main>\n<div class="container-fluid">\n            <div class="text-center & content_top">\n             <div class="header">\n                ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content_top'):
             context['self'].content_top(**pageargs)
         

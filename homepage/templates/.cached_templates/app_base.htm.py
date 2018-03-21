@@ -5,11 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1520476464.336305
+_modified_time = 1520913251.582111
 _enable_loop = True
 _template_filename = '/Users/hollyholland/PycharmProjects/FOMO1/FOMO/homepage/templates/app_base.htm'
 _template_uri = 'app_base.htm'
 _source_encoding = 'utf-8'
+import django_mako_plus
 import django_mako_plus
 _exports = ['navbar']
 
@@ -63,7 +64,9 @@ def render_navbar(context,**pageargs):
         __M_writer(str('active' if request.dmp.page == 'terms' else ''))
         __M_writer('"><a href="/terms/">Terms and Conditions</a></li>\n<li class="nav-item ')
         __M_writer(str('active' if request.dmp.page == 'sections' else ''))
-        __M_writer('"><a href="/sections/">Sections</a></li>\n\n')
+        __M_writer('"><a href="/sections/">Sections</a></li>\n<li class="nav-item ')
+        __M_writer(str('active' if request.dmp.page == 'sections' else ''))
+        __M_writer('"><a href="/catalog/">Catalog</a></li>\n\n')
         if request.user.is_authenticated:
             __M_writer('<li class="nav-item ')
             __M_writer(str('active' if request.dmp.page == 'index' else ''))
@@ -75,6 +78,6 @@ def render_navbar(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/hollyholland/PycharmProjects/FOMO1/FOMO/homepage/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"28": 0, "36": 1, "41": 16, "47": 5, "54": 5, "55": 6, "56": 6, "57": 7, "58": 7, "59": 8, "60": 8, "61": 9, "62": 9, "63": 10, "64": 10, "65": 11, "66": 11, "67": 13, "68": 14, "69": 14, "70": 14, "76": 70}}
+{"filename": "/Users/hollyholland/PycharmProjects/FOMO1/FOMO/homepage/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "37": 1, "42": 17, "48": 5, "55": 5, "56": 6, "57": 6, "58": 7, "59": 7, "60": 8, "61": 8, "62": 9, "63": 9, "64": 10, "65": 10, "66": 11, "67": 11, "68": 12, "69": 12, "70": 14, "71": 15, "72": 15, "73": 15, "79": 73}}
 __M_END_METADATA
 """

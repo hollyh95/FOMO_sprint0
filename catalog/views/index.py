@@ -13,6 +13,16 @@ def process_request(request, Category:cmod.Category=None):
        pList = cmod.Product.objects.all()
        catid = 0
 
+   lastFive = request.session.get('lastFive')
+   lastFiveProds = []
+   if len(lastFive) < 5:
+       for product in lastFive:
+            lastFiveProds.insert(0, cmod.Product.objects.get(id=product))
+   else:
+       for x in range (len(lastFive) - 5, len(lastFive)):
+            lastFiveProds.insert(0, cmod.Product.objects.get(id=lastFive[x]))
+
+   request.session['lastFive'] = lastFive
 
    maxPages = math.ceil(len(pList)/6)
 
@@ -21,6 +31,8 @@ def process_request(request, Category:cmod.Category=None):
        'selected': Category,
        'maxPages': maxPages,
        jscontext('catid'): catid,
+       'active_id': catid,
+       'lastFiveProds': lastFiveProds,
    }
    return request.dmp.render('index.html', context)
 
@@ -28,7 +40,6 @@ def process_request(request, Category:cmod.Category=None):
 def inner(request, Category:cmod.Category=None, pnum:int=1):
     products = cmod.Product.objects.all()
     categories = cmod.Category.objects.all()
-
     if Category is not None:
         qry = products.filter(category=Category)
     else:
@@ -37,7 +48,7 @@ def inner(request, Category:cmod.Category=None, pnum:int=1):
     splice = qry[(pnum-1)*6:pnum*6]
 
     context = {
-        'splice': splice
+        'splice': splice,
     }
     return request.dmp.render('index.inner.html', context)
 

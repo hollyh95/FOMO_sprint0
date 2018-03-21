@@ -1,0 +1,33 @@
+li {
+    list-style-type: none;
+}
+
+.small-image-tile{
+    width: 60px;
+    padding: 5px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .7);
+    margin-bottom: 15px;
+}
+
+.small-image-tile > img {
+    width: 50px;
+}
+
+.main-image{
+    width: 210px;
+    padding: 5px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, .7);
+}
+
+.main-image > img{
+    width: 200px;
+}
+
+#butt{
+    width: 80px;
+    margin-left: 65px;
+}
+
+#quantity{
+    margin-left: 70px;
+}

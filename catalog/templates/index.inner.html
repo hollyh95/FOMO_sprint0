@@ -1,3 +1,7 @@
 %for p in splice:
-<li><div class='catalog-element'><div class='catalog-title text-center'>${p.name}</div><div class='catalog-price'>$${p.price}</div><img src="${p.image_url()}" /></div></li></li>
+<a href="/catalog/details/${ p.id }">
+<li><div class='catalog-element'><div class='catalog-title text-center'>${p.name}</div>
+    <div class='catalog-price'>$${p.price}</div><img src="${p.image_url()}" /></div>
+</li>
+</a>
 %endfor

@@ -9,6 +9,7 @@
 <li class="nav-item ${'active' if request.dmp.page == 'faq' else ''}"><a href="/faq/">FAQ</a></li>
 <li class="nav-item ${'active' if request.dmp.page == 'terms' else ''}"><a href="/terms/">Terms and Conditions</a></li>
 <li class="nav-item ${'active' if request.dmp.page == 'sections' else ''}"><a href="/sections/">Sections</a></li>
+<li class="nav-item ${'active' if request.dmp.page == 'sections' else ''}"><a href="/catalog/">Catalog</a></li>
 
 %if request.user.is_authenticated:
 <li class="nav-item ${'active' if request.dmp.page == 'index' else ''}"><a href="/manager/index/">Product</a></li>
